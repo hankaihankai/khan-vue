@@ -18,6 +18,14 @@ module.exports = {
         pathRewrite: {
           '^/api': '/'   //需要rewrite重写的,
         }
+      },
+      '/oauth2': {
+        // 测试环境
+        target: 'http://localhost:8089/',  // 接口域名
+        changeOrigin: true,  //是否跨域
+        pathRewrite: {
+          '^/oauth2': '/'   //需要rewrite重写的,
+        }
       }
     },
 

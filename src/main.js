@@ -8,11 +8,19 @@ import 'element-ui/lib/theme-chalk/index.css'
 import VueResource from 'vue-resource'
 import axios from 'axios'
 
+
 Vue.use(ElementUI)
 Vue.use(VueResource)
 Vue.use(axios)
 Vue.config.productionTip = false
-
+Vue.prototype.getToken = function (){
+  let item = localStorage.getItem("token");
+  item = JSON.parse(item)
+  let  token_type = item.token_type;
+  let accessToken = item.access_token;
+  console.log(token_type + " " + accessToken)
+  return token_type + " " + accessToken;
+}
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
