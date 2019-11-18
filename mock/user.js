@@ -1,25 +1,16 @@
 
 const tokens = {
-  admin: {
-    token: 'admin-token'
-  },
-  editor: {
-    token: 'editor-token'
+  token: {
+    token: "token"
   }
 }
 
 const users = {
-  'admin-token': {
+  'token': {
     roles: ['admin'],
     introduction: 'I am a super administrator',
     avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
     name: 'Super Admin'
-  },
-  'editor-token': {
-    roles: ['editor'],
-    introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-    name: 'Normal Editor'
   }
 }
 
@@ -30,13 +21,13 @@ export default [
     type: 'post',
     response: config => {
       const { username } = config.body
-      const token = tokens[username]
+       const token = tokens['token']
 
       // mock error
       if (!token) {
         return {
           code: 60204,
-          message: 'Account and password are incorrect.'
+          message: 'token 获取失败'
         }
       }
 
@@ -53,7 +44,7 @@ export default [
     type: 'get',
     response: config => {
       const { token } = config.query
-      const info = users[token]
+      const info = users['token']
 
       // mock error
       if (!info) {
